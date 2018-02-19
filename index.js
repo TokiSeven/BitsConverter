@@ -1,10 +1,14 @@
-import File from './File';
-let rawImageData: Buffer = File.getImageData();
+let File = require('./File');
+let Image = require('./Image');
 
+let rawImageData = File.getImageData();
+let averageChannels = Image.getAverageColor(rawImageData);
+
+console.log(averageChannels);
 
 // Creates img_data_logo.mif
-let colors8bit: string[] = [];
-let i: number = 0;
+let colors8bit = [];
+let i = 0;
 while (i < rawImageData.length) {
     let color = {
         r: rawImageData[i++],
@@ -31,18 +35,18 @@ File.saveImageData(colors8bit);
 
 
 // Creates index_logo.mif
-let index_logo: string[] = [];
-for (let i: number = 0; i < 256; i++) {
-    let iHex: string = i.toString(2);
+let index_logo = [];
+for (let i = 0; i < 256; i++) {
+    let iHex = i.toString(2);
     while (iHex.length < 8) {
         iHex = '0' + iHex;
     }
 
-    let b: string = iHex.charAt(0) + iHex.charAt(1) + '000000';
-    let g: string = iHex.charAt(2) + iHex.charAt(3) + iHex.charAt(4) + '00000';
-    let r: string = iHex.charAt(5) + iHex.charAt(6) + iHex.charAt(7) + '00000';
+    let b = iHex.charAt(0) + iHex.charAt(1) + '000000';
+    let g = iHex.charAt(2) + iHex.charAt(3) + iHex.charAt(4) + '00000';
+    let r = iHex.charAt(5) + iHex.charAt(6) + iHex.charAt(7) + '00000';
 
-    let color: string = b + g + r;
+    let color = b + g + r;
     color = parseInt(color, 2).toString(16);
 
     while (color.length < 6) {

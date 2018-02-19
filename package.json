@@ -4,13 +4,16 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "start": "clear && node index.js",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "start": "clear && node index.js"
     },
     "author": "",
     "license": "ISC",
     "dependencies": {
         "fs": "0.0.1-security",
-        "jpeg-js": "^0.3.3"
+        "jpeg-js": "^0.3.3",
+        "nodemon": "^1.15.1",
+        "npm-run-all": "^4.1.2",
+        "rimraf": "^2.6.2",
+        "typescript": "^2.7.2"
     }
 }
