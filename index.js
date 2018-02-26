@@ -3,8 +3,11 @@ let Image = require('./Image');
 
 let rawImageData = File.getImageData();
 let averageChannels = Image.getAverageColor(rawImageData);
+let colorsRange = Image.getDistribution(averageChannels);
 
 console.log(averageChannels);
+console.log(colorsRange);
+return;
 
 // Creates img_data_logo.mif
 let colors8bit = [];
@@ -41,6 +44,8 @@ for (let i = 0; i < 256; i++) {
     while (iHex.length < 8) {
         iHex = '0' + iHex;
     }
+
+    // iHex will be look like: 10101010
 
     let b = iHex.charAt(0) + iHex.charAt(1) + '000000';
     let g = iHex.charAt(2) + iHex.charAt(3) + iHex.charAt(4) + '00000';
