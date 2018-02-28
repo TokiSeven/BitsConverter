@@ -2,12 +2,6 @@ let File = require('./File');
 let Image = require('./Image');
 
 let rawImageData = File.getImageData();
-let averageChannels = Image.getAverageColor(rawImageData);
-let colorsRange = Image.getDistribution(averageChannels);
-
-console.log(averageChannels);
-console.log(colorsRange);
-return;
 
 // Creates img_data_logo.mif
 let colors8bit = [];
